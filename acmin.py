@@ -13,28 +13,51 @@ bot = commands.Bot(command_prefix=bot_prefix)
 bot.remove_command("help")
 TOKEN = "NzMyNDI5MTg5MjM5NjY4OTE4.Xw0eCg.umnrxesYMBnMODD4yJCFKuQx484"
 
-
 @bot.command()
 async def ping(ctx):
     await ctx.send('Tu conexión es de...')
-    await ctx.send('⠀ <a:ping999:732776001469284434> ms')
+    await ctx.send('<a:ping999:732776001469284434> ms')
+
+@bot.command()
+async def asd(ctx):
+    embed = discord.Embed(
+        title=f"Lista de comandos",
+        color=discord.Colour(0xe75933),
+        description=""
+    )
+
+    embed.description="Pta GAA"
+    embed.add_field(
+        name=f"Aea",
+        value=f"aeaaa",
+        inline=False
+    )
+    embed.add_field(
+        name=f"sssss",
+        value=f"eaeaea",
+        inline=False
+    )
+    embed.set_author(
+        name=f" aea",
+        icon_url='',
+        )
+    embed.set_footer(
+        text=f"a!ayuda | En el servidor para detalles del bot",
+        icon_url='',
+        )
+    embed.timestamp = datetime.datetime.utcnow()
+    await ctx.send(embed=embed)
 
 @bot.command()
 async def serverinfo(ctx):
     embed = discord.Embed(title=f"{ctx.guild.name}", description="Información del servidor de discord actual.", timestamp=datetime.datetime.utcnow(), color=discord.Color.red())
     embed.add_field(name="Fecha de creación:", value=f" {ctx.guild.created_at}")
-    embed.add_field(name="Server ID:", value=f" {ctx.guild.id}")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="Creador:", value=f"{ctx.guild.owner}")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="Región: ", value=f" {ctx.guild.region}")
-    embed.add_field(name="Cantidad de miembros:", value=f"{ctx.guild.member_count}")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
+    embed.add_field(name="Server ID:", value=f" {ctx.guild.id}", inline=False)
+    embed.add_field(name="Creador:", value=f"{ctx.guild.owner}", inline=False)
+    embed.add_field(name="Región: ", value=f" {ctx.guild.region}", inline=True)
+    embed.add_field(name="Cantidad de miembros:", value=f"{ctx.guild.member_count}", inline=True)
     embed.add_field(name="Nivel de verificación:", value=f"{ctx.guild.verification_level}")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="Mejoras (Boosts):", value=f"{ctx.guild.premium_subscription_count}")
+    embed.add_field(name="Mejoras (Boosts):", value=f"{ctx.guild.premium_subscription_count}", inline=False)
     embed.set_thumbnail(url=f"{ctx.guild.icon_url}")
 
     await ctx.send(embed=embed)
@@ -42,19 +65,11 @@ async def serverinfo(ctx):
 @bot.command(aliases=["comandos"])
 async def ayuda(ctx):
     embed = discord.Embed(title=f"Lista de comandos", description="Hola, soy un bot nuevo o.0, cuento con cierta cantidad de comandos para tu servicio, espero que te gusten mis funciones, por aquí te dejo mi lista de comandos para que los uses a tu gusto :).", color=discord.Color.blue())
-    embed.add_field(name=f"Comandos Divertidos", value=f"⠀`a!say`⠀`a!sayembed`⠀`a!ping`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"Comandos de Moderación", value=f"⠀`a!kick`⠀`a!ban`⠀`a!unban`⠀`a!clear`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"Comandos Informativos", value=f"⠀`a!serverinfo`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"PROXIMAMENTE", value=f"⠀`a!youtube`⠀`a!twitch`⠀`gimages`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"Comandos sobre el bot", value=f"`a!help`⠀`a!suggestbot`⠀`a!reportbug`⠀`a!donate`⠀`a!invite`⠀")
+    embed.add_field(name=f"Comandos Divertidos", value=f"`a!say` `a!sayembed` `a!ping`", inline=False)
+    embed.add_field(name=f"Comandos de Moderación", value=f"`a!kick` `a!ban` `a!unban` `a!clear`", inline=False)
+    embed.add_field(name=f"Comandos Informativos", value=f"`a!serverinfo`", inline=False)
+    embed.add_field(name=f"PROXIMAMENTE", value=f"`a!youtube` `a!twitch` `gimages`", inline=False)
+    embed.add_field(name=f"Comandos sobre el bot", value=f"`a!help` `a!suggestbot` `a!reportbug` `a!donate` `a!invite`", inline=False)
     embed.set_footer(text=f"Bot desarrollado por Tuniubfav#6325 | Contactar si encuentras algun error.")
 
     await ctx.send(embed=embed)
@@ -62,19 +77,11 @@ async def ayuda(ctx):
 @bot.command(aliases=["ayudame"])
 async def help(ctx):
     embed = discord.Embed(title=f"Lista de comandos", description="Hola, soy un bot nuevo o.0, cuento con cierta cantidad de comandos para tu servicio, espero que te gusten mis funciones, por aquí te dejo mi lista de comandos para que los uses a tu gusto :).", color=discord.Color.blue())
-    embed.add_field(name=f"Comandos Divertidos", value=f"⠀`a!say`⠀`a!sayembed`⠀`a!ping`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"Comandos de Moderación", value=f"⠀`a!kick`⠀`a!ban`⠀`a!unban`⠀`a!clear`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"Comandos Informativos", value=f"⠀`a!serverinfo`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"PROXIMAMENTE", value=f"⠀`a!youtube`⠀`a!twitch`⠀`gimages`⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name=f"Comandos sobre el bot", value=f"`a!help`⠀`a!suggestbot`⠀`a!reportbug`⠀`a!donate`⠀`a!invite`⠀")
+    embed.add_field(name=f"Comandos Divertidos", value=f"`a!say` `a!sayembed` `a!ping`", inline=False)
+    embed.add_field(name=f"Comandos de Moderación", value=f"`a!kick` `a!ban` `a!unban` `a!clear`", inline=False)
+    embed.add_field(name=f"Comandos Informativos", value=f"`a!serverinfo`", inline=False)
+    embed.add_field(name=f"PROXIMAMENTE", value=f"`a!youtube` `a!twitch` `gimages`", inline=False)
+    embed.add_field(name=f"Comandos sobre el bot", value=f"`a!help` `a!suggestbot` `a!reportbug` `a!donate` `a!invite`", inline=False)
     embed.set_footer(text=f"Bot desarrollado por Tuniubfav#6325 | Contactar si encuentras algun error.")
 
     await ctx.send(embed=embed)
@@ -102,36 +109,22 @@ async def sayembed(ctx, *, arg):
 
     await ctx.send(embed=embed)
 
-@bot.command()
-async def userinfo(ctx, *args, **kwargs):
-    await ctx.channel.purge(limit=1)
-    await ctx.send(f"Proximamente...")
-
-
 @bot.command(pass_context=True)
 async def invite(ctx):
     embed = discord.Embed(title=f"Acmin BOT", description="Hola! Soy un bot nuevo, no cuento con muchas funciones, pero puedes invitarme a tu servidor por tu cuenta, te ayudare con lo que tenga, si necesitas ayuda o mas información puedes contactar con mi creador Tuniubfav#6325", color=discord.Color.blue())
-    embed.add_field(name=f"> Invitación:", value=f"https://discord.com/api/oauth2/authorize?client_id=732429189239668918&permissions=8&scope=bot")
+    embed.add_field(name=f"> Invitación:", value=f"https://discord.com/api/oauth2/authorize?client_id=732429189239668918&permissions=8&scope=bot", inline=False)
     embed.set_image(url=f"https://otakutherapy.com/wp-content/uploads/2016/12/otku_2893a1ab748b1e20.gif")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="> Usa a!help para saber mis comandos", value=f"⠀⠀⠀⠀⠀⠀")
+    embed.set_footer(text=f"Bot desarrollado por Tuniubfav#6325 | Contactar si encuentras algun error.")
 
     await ctx.send(embed=embed)
 
 @bot.command(aliases=["donar"])
 async def donate(ctx):
     embed = discord.Embed(title=f"Acmin BOT", description="Si quieres donar para ayudar a mi creador a que siga programandome, puedes hacerlo depositando dinero a este paypal:", color=discord.Color.green())
-    embed.add_field(name=f"⠀⠀⠀⠀⠀⠀", value=f"https://paypal.me/JosePazT?locale.x=es_XC")
+    embed.add_field(name=f"> PayPal", value=f"https://paypal.me/JosePazT?locale.x=es_XC", inline=False)
     embed.set_image(url=f"https://i.pinimg.com/originals/12/68/28/126828476cd6caba2b8c4d73cbaba857.gif")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"⠀⠀⠀⠀⠀⠀")
-    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"> No es obligatorio donar pero si me seria de mucha ayuda para mi")
+    embed.add_field(name="⠀⠀⠀⠀⠀⠀", value=f"> No es obligatorio donar pero si me seria de mucha ayuda para mi", inline=False)
+    embed.set_footer(text=f"Bot desarrollado por Tuniubfav#6325 | Contactar si encuentras algun error.")
 
     await ctx.send(embed=embed)
 
